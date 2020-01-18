@@ -1,0 +1,115 @@
+#! /bin/sh
+
+[bar/top]
+width = 100%
+height = 24
+fixed-center = true
+enable-ipc = true
+
+background = #aa111111
+foreground = #ffffff
+
+lightgrey = #d3d3d3
+red = #ff0000
+blue = #5bb9e9
+purple = #ba66ba
+pink = #c67998
+
+line-size = 3
+line-color = #5bb9e9
+
+border-size = 0
+border-color= #5bb9e9
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Inconsolata:size=14:weight=bold;1
+font-1 = Fontawesome:size=14;1
+
+modules-left = bspwm
+;modules-center = date
+modules-right = cmus pulseaudio date
+
+;If you want the system tray active
+;tray-position = right
+;tray-padding = 1
+
+wm-restack = bspwm
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+[module/bspwm]
+type = internal/bspwm
+format = <label-state>
+
+label-focused = %name%
+label-focused-underline = #5bb9e9
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-padding = 1
+
+label-empty = %name%
+label-empty-padding = 1
+label-empty-foreground = $lightgrey
+label-empty-background = $lightgrey
+
+[module/cmus]
+type = custom/script
+
+exec = sh ~/.config/polybar/cmus.sh
+exec-if = pgrep -x cmus
+interval = 1
+
+click-left = cmus-remote --pause
+click-right = cmus-remote --stop
+
+format = <label>
+label = "%output% | "
+
+[module/cpuusage]
+type = internal/cpu
+interval = 0.5
+label = "CPU : %percentage%% | "
+
+[module/date]
+type = internal/date
+interval = 1
+date = "%a %d %b"
+time = "%I:%M %p"
+label = "%time% %date%"
+label-underline = $blue
+
+[module/network]
+type = internal/network
+interface = eth0
+interval = 1
+label-connected = %ifname% : Connected
+label-disconnected = %ifname% : Disconnected
+
+[module/pulseaudio]
+type = internal/pulseaudio
+interval = 0
+
+format-volume = "Volume: <label-volume> | "
+label-volume = %percentage%%
+format-muted = "Volume: <label-muted> | "
+label-muted = MUTE
+
+sink = alsa_output.pci-0000_00_14.2.analog-stereo
+use-ui-max = true
+
+[module/ramusage]
+type = internal/memory
+interval = 3
+label = "RAM: %mb_used%/%mb_total%"
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:%
+format-foreground = $foreground

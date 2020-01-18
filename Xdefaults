@@ -1,0 +1,60 @@
+! Internal padding for windows
+URxvt*internalBorder:	24
+
+! Fonts
+URxvt*font:		xft:Inconsolata for Powerline:size=12
+
+! Scrollbar
+URxvt*scrollBar:	false
+URxvt*scrollBar_right:	false
+
+! Cursor
+URxvt*cursorBlink:	true
+URxvt*cursorUnderline:	false
+
+!
+! Important things to define
+!
+
+! Required for composite (real) transparency
+URxvt*depth:		32
+
+! Extensions
+! Currently there are no extensions
+
+!
+! Colour scheme
+!
+
+! Background and Foreground
+URxvt*background:	rgba:1111/1111/1111/aaaa
+URxvt*foreground:	#ffffff
+
+URxvt*color0:		#000000
+URxvt*color8:		#ffffff
+
+! Purple
+URxvt*color1:		#54407d
+URxvt*color9:		#54407d
+
+! Blue
+URxvt*color2:		#5bb9e9
+URxvt*color10:		#5bb9e9
+
+URxvt*color6:           #3f81a3
+URxvt*color14:          #3f81a3
+
+! Green
+URxvt*color3:		#00cd00
+URxvt*color11:		#00cd00
+
+! Violet
+URxvt*color4:		#ba66ba
+URxvt*color12:		#ba66ba
+
+URxvt*color5:		#5bb9e9
+URxvt*color13:		#5bb9e9
+
+! Pink
+URxvt*color7:		#c67998
+URxvt*color15:		#c67998
